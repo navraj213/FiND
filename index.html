@@ -110,7 +110,7 @@
 
         .nav-button:hover::first-letter {
             color: #0C0; /* Change the color to green on hover */
-            font-weight: bold;
+            font-weight: bold; 
         }
     </style>
 </head>
@@ -192,6 +192,26 @@
                 searchInput.value = suggestion.textContent;
                 searchSuggestions.style.display = "none"; // Hide the suggestions after selecting one
             });
+        });
+
+        function hideSuggestions() {
+            searchSuggestions.style.display = "none";
+        }
+
+        // Add event listener to the document to hide search suggestions when clicked outside
+        document.addEventListener("click", (event) => {
+            const isOutsideSearchSuggestions = !searchSuggestions.contains(event.target);
+            if (isOutsideSearchSuggestions) {
+                hideSuggestions();
+            }
+        });
+
+        // Add event listener to the document to hide search suggestions when mouse moves outside
+        document.addEventListener("mouseover", (event) => {
+            const isOutsideSearchSuggestions = !searchSuggestions.contains(event.target);
+            if (isOutsideSearchSuggestions) {
+                hideSuggestions();
+            }
         });
 
         // Add click event listeners to the buttons
