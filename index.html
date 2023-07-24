@@ -104,7 +104,7 @@
             margin-left: 75px;
             cursor: pointer;
             font-size: 20px;
-            color: #000;
+            color: rgba(111, 111, 111, 0.941);
             position: relative;
         }
 
@@ -112,15 +112,23 @@
             color: #0C0; /* Change the color to green on hover */
             font-weight: bold; 
         }
+
+        a {
+            text-decoration: none !important; /* No underline for the links */
+        }
     </style>
 </head>
 <body>
     <!-- Your logo -->
-    <img draggable="false" src="Images/FiND.png" alt="FiND Logo" class="logo">
+    <a href="index.html">
+        <img draggable="false" src="Images/FiND.png" alt="FiND Logo" class="logo">
+    </a>
 
     <!-- Buttons container -->
     <div class="buttons-container">
-        <div class="nav-button" id="futures-btn">Futures</div>
+        <a href="futures.html">
+            <div class="nav-button" id="futures-btn">Futures</div>
+        </a>
         <div class="nav-button" id="index-btn">Index</div>
         <div class="nav-button" id="news-btn">News</div>
         <div class="nav-button" id="dailys-btn">Dailys</div>
@@ -169,11 +177,11 @@
             searchImage.style.filter = "grayscale(100%)";
         }
 
-        // Add click event listener to the logo
-        const logo = document.querySelector(".logo");
-        logo.addEventListener("click", () => {
-            console.log("Logo clicked!"); // Log a message to the console when the logo is clicked
-        });
+        // Add click event listener to the logo (Dont need a eventListener anymore can be used in the future)
+        // const logo = document.querySelector(".logo");
+        // logo.addEventListener("click", () => {
+        //     console.log("Logo clicked!"); // Log a message to the console when the logo is clicked
+        // });
 
         // Add click event listener to the search image
         searchImage.addEventListener("click", () => {
