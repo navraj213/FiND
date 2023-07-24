@@ -185,6 +185,15 @@
             }
         });
 
+        // Add click event listener to the search suggestions
+        const searchSuggestionsList = document.querySelectorAll(".search-suggestion");
+        searchSuggestionsList.forEach((suggestion) => {
+            suggestion.addEventListener("click", () => {
+                searchInput.value = suggestion.textContent;
+                searchSuggestions.style.display = "none"; // Hide the suggestions after selecting one
+            });
+        });
+
         // Add click event listeners to the buttons
         const futuresBtn = document.getElementById("futures-btn");
         const indexBtn = document.getElementById("index-btn");
