@@ -71,10 +71,31 @@
         .search-image:hover {
             filter: none; /* Remove grayscale on hover */
         }
+
+        /* Search suggestions container */
+        .search-suggestions {
+            position: absolute;
+            top: 71px; /* Adjust the top position to align with the search input */
+            left: 275px; /* Adjust the left position to align with the search input */
+            width: 338px; /* Set the width to match the search input */
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #ccc;
+            border-top: none; /* Remove the top border to merge with the input */
+            display: none; /* Hide the container by default */
+        }
+
+        .search-suggestion {
+            padding: 8px;
+            cursor: pointer;
+        }
+
+        .search-suggestion:hover {
+            background-color: rgb(218, 218, 218);
+        }
     </style>
 </head>
 <body>
-    <!-- F.I.N.D. - Financial Information Network Directory -->
+    <!-- Your logo -->
     <img src="Images/FiND.png" alt="FiND Logo" class="logo">
 
     <div class="search-container">
@@ -82,15 +103,31 @@
         <input type="text" class="search-input" placeholder="FiND symbol...">
     </div>
 
+    <!-- Search suggestions container -->
+    <div class="search-suggestions" id="search-suggestions">
+        <div class="search-suggestion">AAPL</div>
+        <div class="search-suggestion">GOOGL</div>
+        <div class="search-suggestion">MSFT</div>
+        <!-- Add more search suggestions as needed -->
+    </div>
+
     <script>
         const searchInput = document.querySelector(".search-input");
         const searchImage = document.getElementById("search-img");
+        const searchSuggestions = document.getElementById("search-suggestions");
         
         searchInput.addEventListener("input", () => {
             if (searchInput.value.trim() === "") {
                 searchImage.style.filter = "grayscale(100%)"; // Set grayscale filter
             } else {
                 searchImage.style.filter = "none"; // Remove grayscale filter
+            }
+
+            // Show or hide search suggestions based on input value
+            if (searchInput.value.trim() === "") {
+                searchSuggestions.style.display = "none";
+            } else {
+                searchSuggestions.style.display = "block";
             }
         });
 
@@ -113,6 +150,15 @@
                 // For example, you could perform a search with the entered symbol
                 console.log("Search for symbol:", symbol);
             }
+        });
+
+        // Add click event listener to the search suggestions
+        const searchSuggestionsList = document.querySelectorAll(".search-suggestion");
+        searchSuggestionsList.forEach((suggestion) => {
+            suggestion.addEventListener("click", () => {
+                searchInput.value = suggestion.textContent;
+                searchSuggestions.style.display = "none"; // Hide the suggestions after selecting one
+            });
         });
     </script>
 </body>
