@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ticker Symbol Search</title>
+    <title>F.i.N.D.</title>
     <style>
         body {
             background-color: white;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             height: 100vh;
             margin: 0;
@@ -92,11 +92,40 @@
         .search-suggestion:hover {
             background-color: rgb(218, 218, 218);
         }
+
+        /* Buttons styles */
+        .buttons-container {
+            position: absolute;
+            top: 50px;
+            right: 30px;
+            display: flex;
+        }
+
+        .nav-button {
+            margin-left: 75px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #000;
+            position: relative;
+        }
+
+        .nav-button:hover::first-letter {
+            color: #0C0; /* Change the color to green on hover */
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <!-- Your logo -->
     <img src="Images/FiND.png" alt="FiND Logo" class="logo">
+
+    <!-- Buttons container -->
+    <div class="buttons-container">
+        <div class="nav-button" id="futures-btn">Futures</div>
+        <div class="nav-button" id="index-btn">Index</div>
+        <div class="nav-button" id="news-btn">News</div>
+        <div class="nav-button" id="dailys-btn">Dailys</div>
+    </div>
 
     <div class="search-container">
         <img src="Images/magnifying-glass-green.png" alt="Search Image" class="search-image" id="search-img">
@@ -115,6 +144,11 @@
         const searchInput = document.querySelector(".search-input");
         const searchImage = document.getElementById("search-img");
         const searchSuggestions = document.getElementById("search-suggestions");
+
+        // Function to log a message when a button is clicked
+        function logButtonClick(buttonName) {
+            console.log(`${buttonName} Button clicked!`);
+        }
         
         searchInput.addEventListener("input", () => {
             if (searchInput.value.trim() === "") {
@@ -152,14 +186,16 @@
             }
         });
 
-        // Add click event listener to the search suggestions
-        const searchSuggestionsList = document.querySelectorAll(".search-suggestion");
-        searchSuggestionsList.forEach((suggestion) => {
-            suggestion.addEventListener("click", () => {
-                searchInput.value = suggestion.textContent;
-                searchSuggestions.style.display = "none"; // Hide the suggestions after selecting one
-            });
-        });
+        // Add click event listeners to the buttons
+        const futuresBtn = document.getElementById("futures-btn");
+        const indexBtn = document.getElementById("index-btn");
+        const newsBtn = document.getElementById("news-btn");
+        const dailysBtn = document.getElementById("dailys-btn");
+
+        futuresBtn.addEventListener("click", () => logButtonClick("Futures"));
+        indexBtn.addEventListener("click", () => logButtonClick("Index"));
+        newsBtn.addEventListener("click", () => logButtonClick("News"));
+        dailysBtn.addEventListener("click", () => logButtonClick("Dailys"));
     </script>
 </body>
 </html>
