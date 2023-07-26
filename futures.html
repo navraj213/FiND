@@ -3,6 +3,12 @@
 <head>
     <title>FiND - Futures</title>
     <style>
+        body {
+            margin: 0; /* Remove default body margin */
+            padding: 0; /* Remove default body padding */
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
         .logo {
             position: fixed;
             top: 20px;
@@ -17,21 +23,69 @@
             filter: none; /* Remove grayscale on hover */
         }
 
-        .text {
+        .header {
             position: absolute;
-            align-self: center;
-            margin-left: 400px;
+            top: 20px;
+            right: 30px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-size: 35px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: rgb(218, 218, 218);
         }
+        .header::first-letter {
+            color: #0C0;
+            font-size: 45px;
+        }
+
+        .future-stock {
+            display: inline-block;
+            width: 350px;
+            height: 200px;
+            margin-left: 30px;
+            background-color: rgb(218, 218, 218);
+            margin-top: 150px;
+            margin-right: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 18px;
+            font-weight: normal;
+        }
+
+        .future-stock:hover {
+            display: inline-block;
+            width: 350px;
+            height: 200px;
+            margin-left: 30px;
+            background-color: rgb(218, 218, 218);
+            border: 1px solid #0C0;
+            margin-top: 150px;
+            margin-right: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0C0;
+            border: 1px solid #0C0;
+            cursor: pointer;
+        }
+
+
     </style>
     
 </head>
 <body>
-    <!-- Your logo -->
-    <a href="index.html">
+    <h1 class="header">Futures</h1>
+    <a href="index.html" draggable="false">
         <img draggable="false" src="Images/FiND.png" alt="FiND Logo" class="logo">
     </a>
 
-    <h1 class="text">Futures</h1>
-
+    <!-- Example future stocks boxes -->
+    <div class="future-stock">Future Stock 1</div>
+    <div class="future-stock">Future Stock 2</div>
+    <div class="future-stock">Future Stock 3</div>
+    <div class="future-stock">Future Stock 4</div>
 </body>
 </html>
