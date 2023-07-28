@@ -3,6 +3,35 @@
 <head>
     <title>F.i.N.D.</title>
     <style>
+      .column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
         body {
             background-color: white;
             display: flex;
@@ -55,6 +84,21 @@
             border: none;
             cursor: pointer;
         }
+        .button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: green;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #000000;
+}
 
         /* Your logo styles */
         .logo {
@@ -152,6 +196,35 @@
         <div class="search-suggestion">MSFT</div>
         <!-- Add more search suggestions as needed -->
     </div>
+    <div class="about-us">
+      <h1>A little Background</h1>
+      <p>We mainly created this website to utilize our interset in coding and put it together with our interest in stocks. Hopefully you guys !</p>
+    </div>
+    <h2>Your Creators</h2>
+   <div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="" >
+      <div class="container">
+        <h2>Navraj Singh</h2>
+        <p class="title">OG Creator</p>
+        <p>Man started the mission we are all just followers</p>
+        <p><a href="https://github.com/navraj213"><button class="button">Take me to his Github</button></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <img src="" >
+      <div class="container">
+        <h2>Benoy Thomas</h2>
+        <p class="title">Your Friendly Neighborhood Web Developer</p>
+        <p>I'm just a fellow up and coming web developer who is trying to get like my boy Nav.</p>
+        <p><a href="https://github.com/bthoma31"><button class="button">Take me to his Github</button></a></p>
+      </div>
+    </div>
+  </div>
+  </div>
 
     <script>
         const searchInput = document.querySelector(".search-input");
