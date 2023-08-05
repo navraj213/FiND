@@ -48,8 +48,8 @@
             margin-right: 50px;
             padding: 10px;
             box-sizing: border-box;
-            text-align: center;
-            font-size: 18px;
+            text-align: left;
+            font-size: 25px;
             font-weight: normal;
         }
 
@@ -64,12 +64,23 @@
             margin-right: 50px;
             padding: 10px;
             box-sizing: border-box;
-            text-align: center;
-            font-size: 18px;
+            text-align: left;
+            font-size: 25px;
             font-weight: bold;
             color: #0C0;
             border: 1px solid #0C0;
             cursor: pointer;
+        }
+
+        /*Need to fix this box and make it flush w the left side and make it change colors based on if its up or down that day*/
+        .green-box {
+            position: relative;
+            margin-right: 0px;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 200px; /* Adjust the height of the small box */
+            background-color: green; /* Set the color you want */
         }
 
 
@@ -83,9 +94,22 @@
     </a>
 
     <!-- Example future stocks boxes -->
-    <div class="future-stock">Future Stock 1</div>
-    <div class="future-stock">Future Stock 2</div>
-    <div class="future-stock">Future Stock 3</div>
-    <div class="future-stock">Future Stock 4</div>
+    <div class="future-stock">COMP
+        <div class="green-box"></div>
+    </div>
+    <div class="future-stock">NDX</div>
+    <div class="future-stock">INDU</div>
+    <div class="future-stock">SPX</div>
+
+    <!-- JavaScript code
+    const futureStockElement = document.querySelector(".future-stock");
+
+    // Check a condition and set the background color accordingly
+    if (conditionIsMet) {
+        futureStockElement.style.backgroundColor = "green";
+    } else {
+        futureStockElement.style.backgroundColor = "red";
+    } -->
+
 </body>
 </html>
