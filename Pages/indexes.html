@@ -17,10 +17,53 @@
             filter: none; /* Remove grayscale on hover */
         }
 
-        .text {
+        .header {
             position: absolute;
-            align-self: center;
-            margin-left: 400px;
+            top: 20px;
+            right: 30px;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-size: 35px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: rgb(218, 218, 218);
+        }
+        .header::first-letter {
+            color: #0C0;
+            font-size: 45px;
+        }
+
+        .index {
+            display: inline-block;
+            width: 350px;
+            height: 200px;
+            margin-left: 30px;
+            background-color: rgb(218, 218, 218);
+            margin-top: 150px;
+            margin-right: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+            font-size: 25px;
+            font-weight: normal;
+        }
+
+        .index:hover {
+            display: inline-block;
+            width: 350px;
+            height: 200px;
+            margin-left: 30px;
+            background-color: rgb(218, 218, 218);
+            border: 1px solid #0C0;
+            margin-top: 150px;
+            margin-right: 50px;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+            font-size: 25px;
+            font-weight: bold;
+            color: #0C0;
+            border: 1px solid #0C0;
+            cursor: pointer;
         }
     </style>
     
@@ -31,7 +74,16 @@
         <img draggable="false" src="../Images/FiND.png" alt="FiND Logo" class="logo">
     </a>
 
-    <h1 class="text">Indexes</h1>
+    <h1 class="header">Indexes</h1>
+
+    <div class="index">S&P 500</div>
+    <div class="index">Dow Jones Industrial Average</div>
+    <div class="index">NASDAQ</div>
+    <div class="index">NYSE</div>
+    <div class="index">Russell 2000</div>
+    <div class="index">FTSE 100</div>
+    <div class="index">CAC 40</div>
+    <div class="index">STI</div>
 
 </body>
 </html>
