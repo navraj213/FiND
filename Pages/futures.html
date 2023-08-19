@@ -55,13 +55,15 @@
             font-weight: normal;
         }
         .future-stock-box:hover {
-            border: 1px solid #0C0;
-            color: #0C0;
+            border: 1px solid black;
             font-weight: bold;
         }
         .future-stock-box p {
             margin-left: 5px;
             margin-top: 2px;
+        }
+        .future-stock-box p:hover {
+            font-weight: bold;
         }
 
         .future-stock-box-strip {
@@ -74,12 +76,20 @@
             background-color: rgba(0, 204, 0, 0.2); 
             animation: pulse 2s infinite; 
         }
-        @keyframes pulse {
+        @keyframes pulse-red {
             0%, 100% {
-                background-color: rgba(0, 204, 0, 0.2);  
+                background-color: rgba(255, 0, 0, 0.2);
             }
             50% {
-                background-color: rgba(0, 204, 0, 1); 
+                background-color: rgba(255, 0, 0, 1);
+            }
+        }
+        @keyframes pulse-green {
+            0%, 100% {
+                background-color: rgba(0, 204, 0, 0.2);
+            }
+            50% {
+                background-color: rgba(0, 204, 0, 1);
             }
         }
     </style>
@@ -93,32 +103,55 @@
     </a>
 
     <!-- Example future stocks boxes -->
-    <div class="future-stock-box">
+    <div class="future-stock-box red-box">
         <div class="future-stock-box-strip"></div>
         <p>COMP</p>
     </div>
-    <div class="future-stock-box">NDX</div>
-    <div class="future-stock-box">INDU</div>
-    <div class="future-stock-box">SPX</div>
-    <div class="future-stock-box">NDX</div>
-    <div class="future-stock-box">INDU</div>
-    <div class="future-stock-box">SPX</div>
-    <div class="future-stock-box">NDX</div>
-    <div class="future-stock-box">INDU</div>
-    <div class="future-stock-box">SPX</div>
-    <div class="future-stock-box">NDX</div>
-    <div class="future-stock-box">INDU</div>
-    <div class="future-stock-box">SPX</div>
+    <div class="future-stock-box green-box">
+        <div class="future-stock-box-strip"></div>
+        <p>NDX</p>
+    </div>
+    <div class="future-stock-box red-box">
+        <div class="future-stock-box-strip"></div>
+        <p>INDU</p>
+    </div>
+    <div class="future-stock-box red-box">
+        <div class="future-stock-box-strip"></div>
+        <p>COMP</p>
+    </div>
+    <div class="future-stock-box green-box">
+        <div class="future-stock-box-strip"></div>
+        <p>NDX</p>
+    </div>
+    <div class="future-stock-box green-box">
+        <div class="future-stock-box-strip"></div>
+        <p>INDU</p>
+    </div>
+    <div class="future-stock-box red-box">
+        <div class="future-stock-box-strip"></div>
+        <p>SPX</p>
+    </div>
+    <div class="future-stock-box green-box">
+        <div class="future-stock-box-strip"></div>
+        <p>COMP</p>
+    </div>
 
-    <!-- JavaScript code
-    const futureStockElement = document.querySelector(".future-stock-box");
-
-    // Check a condition and set the background color accordingly
-    if (conditionIsMet) {
-        futureStockElement.style.backgroundColor = "green";
-    } else {
-        futureStockElement.style.backgroundColor = "red";
-    } -->
+    <script>
+        const redBoxes = document.querySelectorAll(".red-box");
+        const greenBoxes = document.querySelectorAll(".green-box");
+    
+        redBoxes.forEach(box => {
+            box.querySelector(".future-stock-box-strip").style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+            box.querySelector(".future-stock-box-strip").style.animation = "pulse-red 2s infinite";
+        });
+    
+        greenBoxes.forEach(box => {
+            box.querySelector(".future-stock-box-strip").style.backgroundColor = "rgba(0, 204, 0, 0.2)";
+            box.querySelector(".future-stock-box-strip").style.animation = "pulse-green 2s infinite";
+        });
+    </script>
+    
+    
 
     
 
