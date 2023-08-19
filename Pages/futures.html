@@ -4,7 +4,7 @@
     <title>FiND - Futures</title>
     <style>
         body {
-            margin: 0; /* Remove default body margin */
+            margin-top: 60px; /* Remove default body margin */
             padding: 0; /* Remove default body padding */
             font-family: Helvetica, Arial, sans-serif;
         }
@@ -15,7 +15,7 @@
             left: 30px;
             width: 100px;
             filter: grayscale(100%);
-            cursor: pointer; /* Change the cursor to a pointer (clickable) */
+            cursor: pointer; 
         }
 
         .logo:hover,
@@ -38,80 +38,80 @@
             font-size: 45px;
         }
 
-        .future-stock {
+        .future-stock-box {
+            position: relative;
             display: inline-block;
+            vertical-align: top;
             width: 350px;
             height: 200px;
-            margin-left: 30px;
+            margin-left: 20px;
             background-color: rgb(218, 218, 218);
-            margin-top: 150px;
-            margin-right: 50px;
-            padding: 10px;
+            margin-top: 50px;
+            margin-right: 30px;
+            margin-bottom: 20px;
             box-sizing: border-box;
             text-align: left;
             font-size: 25px;
             font-weight: normal;
         }
-
-        .future-stock:hover {
-            display: inline-block;
-            width: 350px;
-            height: 200px;
-            margin-left: 30px;
-            background-color: rgb(218, 218, 218);
+        .future-stock-box:hover {
             border: 1px solid #0C0;
-            margin-top: 150px;
-            margin-right: 50px;
-            padding: 10px;
-            box-sizing: border-box;
-            text-align: left;
-            font-size: 25px;
-            font-weight: bold;
             color: #0C0;
-            border: 1px solid #0C0;
-            cursor: pointer;
+            font-weight: bold;
+        }
+        .future-stock-box p {
+            margin-left: 5px;
+            margin-top: 2px;
         }
 
-        /*Need to fix this box and make it flush w the left side and make it change colors based on if its up or down that day*/
-        .green-box {
+        .future-stock-box-strip {
             position: relative;
-            margin-right: 0px;
-            top: 0;
-            left: 0;
-            width: 20px;
-            height: 200px; /* Adjust the height of the small box */
-            background-color: green; /* Set the color you want */
+            margin-bottom: 0px;
+            top: 0px;
+            left: 0px;
+            height: 15px;
+            width: 100%; 
+            background-color: rgba(0, 204, 0, 0.2); 
+            animation: pulse 2s infinite; 
         }
-
-
+        @keyframes pulse {
+            0%, 100% {
+                background-color: rgba(0, 204, 0, 0.2);  
+            }
+            50% {
+                background-color: rgba(0, 204, 0, 1); 
+            }
+        }
     </style>
-    
 </head>
+
 <body>
+    <!-- Logo Information-->
     <h1 class="header">Futures</h1>
     <a href="../index.html" draggable="false">
         <img draggable="false" src="../Images/FiND.png" alt="FiND Logo" class="logo">
     </a>
 
     <!-- Example future stocks boxes -->
-    <div class="future-stock">COMP
-        <div class="green-box"></div>
+    <div class="future-stock-box">
+        <div class="future-stock-box-strip"></div>
+        <p>COMP</p>
     </div>
-    <div class="future-stock">NDX</div>
-    <div class="future-stock">INDU</div>
-    <div class="future-stock">SPX</div>
-    <div class="future-stock">NDX</div>
-    <div class="future-stock">INDU</div>
-    <div class="future-stock">SPX</div>
-    <div class="future-stock">NDX</div>
-    <div class="future-stock">INDU</div>
-    <div class="future-stock">SPX</div>
-    <div class="future-stock">NDX</div>
-    <div class="future-stock">INDU</div>
-    <div class="future-stock">SPX</div>
+    <div class="future-stock-box">NDX</div>
+    <div class="future-stock-box">INDU</div>
+    <div class="future-stock-box">SPX</div>
+    <div class="future-stock-box">NDX</div>
+    <div class="future-stock-box">INDU</div>
+    <div class="future-stock-box">SPX</div>
+    <div class="future-stock-box">NDX</div>
+    <div class="future-stock-box">INDU</div>
+    <div class="future-stock-box">SPX</div>
+    <div class="future-stock-box">NDX</div>
+    <div class="future-stock-box">INDU</div>
+    <div class="future-stock-box">SPX</div>
 
     <!-- JavaScript code
-    const futureStockElement = document.querySelector(".future-stock");
+    const futureStockElement = document.querySelector(".future-stock-box");
 
     // Check a condition and set the background color accordingly
     if (conditionIsMet) {
@@ -119,6 +119,8 @@
     } else {
         futureStockElement.style.backgroundColor = "red";
     } -->
+
+    
 
 </body>
 </html>
