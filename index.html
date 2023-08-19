@@ -23,9 +23,10 @@
         }
 
         .container {
+            margin-top: 60px; 
             padding: 0 16px;
         }
-        
+
         .container::after, .row::after {
             content: "";
             clear: both;
@@ -50,14 +51,15 @@
         }
         
         .search-container {
-            text-align: center;
-            margin-left: 200px;
-            margin-top: 27px;
-            /* left: 250px; */
             display: flex;
             align-items: center;
-            justify-content: center; /* Center horizontally */
-            position:fixed;
+            position: relative; /* Position relative for containing the suggestions */
+            margin-right: 500px;
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
         }
         
         .search-input {
@@ -65,7 +67,6 @@
             font-size: 16px;
             border: 1px solid #ccc;
             width: 300px;
-            margin-bottom: 10px;
             font-family: Helvetica;
             color: black;
             outline: none;
@@ -74,7 +75,6 @@
         .search-image {
             max-width: 20px;
             margin-right: 5px; /* Adjust the margin to create space between the image and the input */
-            margin-bottom: 10px;
             filter: grayscale(100%);
             transition: filter 0.75s ease; /* Transition filter property */
             cursor: pointer; /* Change the cursor to a pointer (clickable) */
@@ -84,7 +84,6 @@
             background: none;
             border: none;
             cursor: pointer;
-            
         }
 
         .button {
@@ -109,9 +108,7 @@
         }
 
         .logo {
-            position: fixed;
-            top: 20px;
-            left: 30px;
+            padding: 5px;
             width: 100px;
             filter: grayscale(100%);
             cursor: pointer; /* Change the cursor to a pointer (clickable) */
@@ -124,14 +121,14 @@
 
         /* Search suggestions container */
         .search-suggestions {
-            position: absolute;
-            top: 62px; /* Adjust the top position to align with the search input */
-            left: 225px; /* Adjust the left position to align with the search input */
             width: 338px; /* Set the width to match the search input */
             background-color: rgb(255, 255, 255);
             border: 1px solid #ccc;
-            border-top: none; /* Remove the top border to merge with the input */
-            display: none; /* Hide the container by default */
+            border-top: none;
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
         }
 
         .search-suggestion {
@@ -144,11 +141,13 @@
         }
 
         /* Buttons styles */
-        .buttons-container {
+        .buttons-container { /*
             position: absolute;
             top: 32px;
             right: 30px;
+            display: flex;*/
             display: flex;
+            align-items: center;
         }
 
         .nav-button {
@@ -158,56 +157,73 @@
             color: rgba(111, 111, 111, 0.941);
             position: relative;
         }
-
         .nav-button:hover::first-letter {
             color: #0C0; /* Change the color to green on hover */
             font-weight: bold; 
         }
 
         .nav-button-link {
-            text-decoration: none !important; /* No underline for the links */
+            text-decoration: none !important; 
         }
-        .navbar{
-          position:fixed;
+        .nav-button-link:hover {
+            text-decoration: underline !important;
         }
+
+        .navbar {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0));
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            position: fixed;
+            z-index: 1;
+        }
+
     </style>
 </head>
 
 
-<body>   
-    <a href="index.html">
-        <img draggable="false" src="Images/FiND.png" alt="FiND Logo" class="logo">
-    </a>
+<body>
+    <div class="navbar">
+        <a draggable="false" href="index.html">
+            <img draggable="false" src="Images/FiND.png" alt="FiND Logo" class="logo">
+        </a>
 
-    <!-- Buttons container -->
-    <div class="buttons-container">
-        <a href="Pages/futures.html" class="nav-button-link">
-            <div class="nav-button" id="futures-btn">Futures</div>
-        </a>
-        <a href="Pages/indexes.html" class="nav-button-link">
-            <div class="nav-button" id="index-btn">Index</div>
-        </a>
-        <a href="Pages/news.html" class="nav-button-link">
-            <div class="nav-button" id="news-btn">News</div>
-        </a>
-        <a href="Pages/dailys.html" class="nav-button-link">
-            <div class="nav-button" id="dailys-btn">Dailys</div>
-        </a>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <img draggable="false" src="Images/magnifying-glass-green.png" alt="Search Image" class="search-image" id="search-img">
+                <input type="text" class="search-input" placeholder="FiND symbol...">
+            </div>
+            
+            <!-- Search suggestions container -->
+            <div class="search-suggestions" id="search-suggestions">
+                <div class="search-suggestion">AAPL</div>
+                <div class="search-suggestion">GOOGL</div>
+                <div class="search-suggestion">MSFT</div>
+                <!-- Add more search suggestions as needed -->
+            </div>
+        </div>
+
+        <!-- Buttons container -->
+        <div class="buttons-container">
+            <a draggable="false" href="Pages/futures.html" class="nav-button-link">
+                <div class="nav-button" id="futures-btn">Futures</div>
+            </a>
+            <a draggable="false" href="Pages/indexes.html" class="nav-button-link">
+                <div class="nav-button" id="index-btn">Index</div>
+            </a>
+            <a draggable="false" href="Pages/news.html" class="nav-button-link">
+                <div class="nav-button" id="news-btn">News</div>
+            </a>
+            <a draggable="false" href="Pages/dailys.html" class="nav-button-link">
+                <div class="nav-button" id="dailys-btn" style="margin-right: 40px;">Dailys</div>
+            </a>
+        </div>
     </div>
 
-    <div class="search-container">
-        <img draggable="false" src="Images/magnifying-glass-green.png" alt="Search Image" class="search-image" id="search-img">
-        <input type="text" class="search-input" placeholder="FiND symbol...">
-    </div>
 
-    <!-- Search suggestions container -->
-    <div class="search-suggestions" id="search-suggestions">
-        <div class="search-suggestion">AAPL</div>
-        <div class="search-suggestion">GOOGL</div>
-        <div class="search-suggestion">MSFT</div>
-        <!-- Add more search suggestions as needed -->
-    </div>
-    <img src="https://www.cnet.com/a/img/resize/5720a17c937346b2441cc7bee0990ff57e9a1f1a/hub/2022/10/14/6dba8977-c818-40fb-81c7-3ebd956ced52/cnet-money-housing-market-trends3.jpg?auto=webp&fit=crop&height=675&width=1200">
+    <img draggable="false" src="https://www.cnet.com/a/img/resize/5720a17c937346b2441cc7bee0990ff57e9a1f1a/hub/2022/10/14/6dba8977-c818-40fb-81c7-3ebd956ced52/cnet-money-housing-market-trends3.jpg?auto=webp&fit=crop&height=675&width=1200">
     
     <div class="about-us">
       <h1>A little Background</h1>
