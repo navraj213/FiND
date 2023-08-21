@@ -4,15 +4,13 @@
     <title>FiND - Futures</title>
     <style>
         body {
-            margin-top: 60px; /* Remove default body margin */
-            padding: 0; /* Remove default body padding */
+            background-color: white;
+            margin: 0;
             font-family: Helvetica, Arial, sans-serif;
         }
 
         .logo {
-            position: fixed;
-            top: 20px;
-            left: 30px;
+            padding: 15px;
             width: 100px;
             filter: grayscale(100%);
             cursor: pointer; 
@@ -24,18 +22,19 @@
         }
 
         .header {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            position: relative;
             font-size: 35px; /* Adjust font size as needed */
             font-weight: bold;
             color: rgb(218, 218, 218);
+            margin: 0 0 0 0;
         }
         .header::first-letter {
             color: #0C0;
             font-size: 45px;
+        }
+
+        .future-wrapper {
+            padding-top: 50px;
         }
 
         .future-stock-box {
@@ -92,48 +91,93 @@
                 background-color: rgba(0, 204, 0, 1);
             }
         }
+
+        .navbar {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0));
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            z-index: 1;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Logo Information-->
-    <h1 class="header">Futures</h1>
-    <a href="../index.html" draggable="false">
-        <img draggable="false" src="../Images/FiND.png" alt="FiND Logo" class="logo">
-    </a>
+    <div class="navbar">
+        <a href="../index.html" draggable="false">
+            <img draggable="false" src="../Images/FiND.png" alt="FiND Logo" class="logo"></img>
+        </a>
+        <h1 class="header" style="margin-right: 20px;">Futures</h1>
+    </div>
+    
 
-    <!-- Example future stocks boxes -->
-    <div class="future-stock-box red-box">
-        <div class="future-stock-box-strip"></div>
-        <p>COMP</p>
-    </div>
-    <div class="future-stock-box green-box">
-        <div class="future-stock-box-strip"></div>
-        <p>NDX</p>
-    </div>
-    <div class="future-stock-box red-box">
-        <div class="future-stock-box-strip"></div>
-        <p>INDU</p>
-    </div>
-    <div class="future-stock-box red-box">
-        <div class="future-stock-box-strip"></div>
-        <p>COMP</p>
-    </div>
-    <div class="future-stock-box green-box">
-        <div class="future-stock-box-strip"></div>
-        <p>NDX</p>
-    </div>
-    <div class="future-stock-box green-box">
-        <div class="future-stock-box-strip"></div>
-        <p>INDU</p>
-    </div>
-    <div class="future-stock-box red-box">
-        <div class="future-stock-box-strip"></div>
-        <p>SPX</p>
-    </div>
-    <div class="future-stock-box green-box">
-        <div class="future-stock-box-strip"></div>
-        <p>COMP</p>
+    <div class = "future-wrapper">
+        <div class="future-stock-box red-box">
+            <div class="future-stock-box-strip"></div>
+            <p>COMP</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>NDX</p>
+        </div>
+        <div class="future-stock-box red-box">
+            <div class="future-stock-box-strip"></div>
+            <p>INDU</p>
+        </div>
+        <div class="future-stock-box red-box">
+            <div class="future-stock-box-strip"></div>
+            <p>COMP</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>NDX</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>INDU</p>
+        </div>
+        <div class="future-stock-box red-box">
+            <div class="future-stock-box-strip"></div>
+            <p>SPX</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>COMP</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>NDX</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>INDU</p>
+        </div>
+        <div class="future-stock-box red-box">
+            <div class="future-stock-box-strip"></div>
+            <p>SPX</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>COMP</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>NDX</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>INDU</p>
+        </div>
+        <div class="future-stock-box red-box">
+            <div class="future-stock-box-strip"></div>
+            <p>SPX</p>
+        </div>
+        <div class="future-stock-box green-box">
+            <div class="future-stock-box-strip"></div>
+            <p>COMP</p>
+        </div>
     </div>
 
     <script>
