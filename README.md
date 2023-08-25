@@ -9,7 +9,7 @@ This directory hosts data for:
 - **N**ews (pertaining to the market)
 - **D**aily (best/worse performing companies)
 
-Live Demo: [https://www.findapp.com/demo](https://www.findapp.com/demo)
+Live Demo: [https://main--find-trades.netlify.app/](https://main--find-trades.netlify.app/)
 
 ## Technologies Used
 - Javascript - Handle event listeners and interative elements
