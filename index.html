@@ -153,9 +153,13 @@
         .nav-button {
             cursor: pointer;
             font-size: 20px;
-            color: rgba(111, 111, 111, 0.941);
+            color: white;
             position: relative;
             padding: 5px;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-button.scrolled {
+            color: rgba(111, 111, 111, 0.941);
         }
         .nav-button:hover::first-letter {
             color: #0C0; /* Change the color to green on hover */
@@ -171,7 +175,7 @@
         }
 
         .navbar {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 85%, rgba(255, 255, 255, 0));
+            background: transparent;
             width: 100%;
             display: flex;
             align-items: center;
@@ -179,6 +183,12 @@
             padding: 10px;
             position: fixed;
             z-index: 1;
+            transition: background-color 0.3s ease-in-out;
+            
+        }
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 0 2em rgba(0, 0, 0, 0.85);
         }
 
     </style>
@@ -342,6 +352,30 @@
         indexBtn.addEventListener("click", () => logButtonClick("Index"));
         newsBtn.addEventListener("click", () => logButtonClick("News"));
         dailysBtn.addEventListener("click", () => logButtonClick("Dailys"));
+
+
+        // JavaScript code to change the navbar's background color on scroll
+        const navbar = document.querySelector(".navbar");
+        const navButtons = document.querySelectorAll(".nav-button");
+        const scrollThreshold = 10; // Set the threshold value in pixels
+
+        // Function to handle scroll event
+        function handleScroll() {
+            if (window.scrollY > scrollThreshold) {
+                navbar.classList.add("scrolled"); 
+            } else {
+                navbar.classList.remove("scrolled"); 
+            }
+        }
+        function updateNavButtonColors() {
+            navButtons.forEach(button => {
+                button.classList.toggle("scrolled", window.scrollY > scrollThreshold);
+            });
+        }
+        window.addEventListener("scroll", () => {
+            handleScroll();
+            updateNavButtonColors();
+        });
     </script>
 </body>
 </html>
