@@ -100,11 +100,14 @@
             justify-content: space-between;
             position: fixed;
             z-index: 1;
-            opacity: 0.85;
             transition: opacity 0.25s;
-            box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5);
         }
-        .navbar:hover {
+        .navbar.scrolled {
+            box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+            opacity: 0.85;
+        }
+        .navbar:hover,
+        .navbar.scrolled:hover{
             opacity: 1;
         }
     </style>
@@ -199,6 +202,22 @@
             box.querySelector(".future-stock-box-strip").style.backgroundColor = "rgba(0, 204, 0, 0.2)";
             box.querySelector(".future-stock-box-strip").style.animation = "pulse-green 2s infinite";
         });
+
+        // JavaScript code to change the navbar's background color on scroll
+        const navbar = document.querySelector(".navbar");
+        const scrollThreshold = 10; // Set the threshold value in pixels
+        // Function to handle scroll event
+        function handleScroll() {
+            if (window.scrollY > scrollThreshold) {
+                navbar.classList.add("scrolled"); 
+            } else {
+                navbar.classList.remove("scrolled"); 
+            }
+        }
+        window.addEventListener("scroll", () => {
+            handleScroll();
+        });
+
     </script>
     
     
