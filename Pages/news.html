@@ -1,37 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FiND - Futures</title>
+    <title>FiND - News</title>
     <style>
-        .logo {
-            position: fixed;
-            top: 20px;
-            left: 30px;
-            width: 100px;
-            filter: grayscale(100%);
-            cursor: pointer; /* Change the cursor to a pointer (clickable) */
+        body {
+            background-color: white;
+            margin: 0;
+            font-family: Helvetica, Arial, sans-serif;
         }
 
-        .logo:hover,
-        .search-image:hover {
+        .logo {
+            padding: 15px;
+            width: 100px;
+            filter: grayscale(100%);
+            cursor: pointer; 
+        }
+        .logo:hover {
             filter: none; /* Remove grayscale on hover */
         }
 
-        .text {
-            position: absolute;
-            align-self: center;
-            margin-left: 400px;
+        .navbar-text {
+            position: relative;
+            font-size: 35px; /* Adjust font size as needed */
+            font-weight: bold;
+            color: rgb(218, 218, 218);
+            margin: 0 0 0 0;
+        }
+        .navbar-text::first-letter {
+            color: #0C0;
+            font-size: 45px;
+        }
+
+        .navbar {
+            background-color: white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            z-index: 1;
+            transition: opacity 0.25s;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 0 2em rgba(0, 0, 0, 0.5);
+        }
+        .navbar:hover,
+        .navbar.scrolled:hover{
+            opacity: 1;
+        }
+
+        .news-wrapper {
+            padding-top: 100px;
+            padding-left: 20px;
+            position: relative;
+            display: inline-block;
+            justify-content: space-between;
+        }
+        .news-container {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: 30%;
+            height: auto;
+            background-color: white;
+            border: 1px solid transparent;
+            padding: 5px;
+            margin: 5px;
+        }
+        .news-container:hover {
+            border: 1px solid #0C0;
+        }
+        .news-container:hover .news-container-text {
+            color: #0C0;
+        }
+        .news-container-image {
+            max-width: 100%;
+            border-radius: 3%;
+            left: 0;
+        }
+        .news-container-text {
+            font-size: large;
+            color: black;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+        }
+        .news-container-text::first-letter {
+            color: #0C0;
+            font-weight: bolder;
+        }
+        .news-container-text-paragraph {
+            color: rgb(55, 55, 55);
+            font-size: medium;
+            font-weight: 100;
+            padding: 0;
+            margin: 0;
+            margin-top: 5px;
         }
     </style>
-    
 </head>
-<body>
-    <!-- Your logo -->
-    <a href="../index.html" draggable="false">
-        <img draggable="false" src="../Images/FiND.png" alt="FiND Logo" class="logo">
-    </a>
 
-    <h1 class="text">News</h1>
+<body>
+    <div class="navbar">
+        <a href="../index.html" draggable="false">
+            <img draggable="false" src="../Images/FiND.png" alt="FiND Logo" class="logo"></img>
+        </a>
+        <h1 style="margin-right: 10px; font-size: 10; color: rgb(218, 218, 218);"> - </h1>
+        <h1 class="navbar-text" style="margin-right: 20px;">News</h1>
+    </div>
+    
+    <div class="news-wrapper">
+        <div class="news-container">
+            <img class="news-container-image" src="https://image.cnbcfm.com/api/v1/image/107102042-1660158042927-gettyimages-1242422546-US_APPEALS_COURT.jpeg?v=1693344052&w=740&h=416&ffmt=webp&vtcrop=y"></img>
+            <h2 class="news-container-text">A spot bitcoin ETF is much closer to reality, but investors aren’t quite there yet</h2>
+            <p class="news-container-text-paragraph">The U.S. Court of Appeals for the D.C. Circuit sided with Grayscale in a lawsuit against the SEC, greatly improving the chances that a bitcoin exchange traded fund will be approved. </p>
+        </div>
+        <div class="news-container">
+            <img class="news-container-image" src="https://media.cnn.com/api/v1/images/stellar/prod/230829152121-hurricane-idalia-aug-28-satellite.jpg?c=original"></img>
+            <h2 class="news-container-text">Idalia is expected to make landfall on Florida’s Gulf Coast early Wednesday, as the storm grew stronger on Tuesday.</h2>
+            <p class="news-container-text-paragraph">Forecasters expected it to develop into an “extremely dangerous major hurricane,” according to the National Hurricane Center.</p>
+        </div>
+        <div class="news-container">
+            <img class="news-container-image" src="https://image.cnbcfm.com/api/v1/image/107247790-1685417777216-gettyimages-1258274369-TAIWAN-COMPUTER-NVIDIA-29052023-10.jpeg?v=1693340834&w=740&h=416&ffmt=webp&vtcrop=y"></img>
+            <h2 class="news-container-text">Nvidia’s stock closes at record after Google AI partnership</h2>
+            <p class="news-container-text-paragraph">On Tuesday, Nvidia CEO Jensen Huang appeared at a Google conference to tout an AI agreement between the two companies.</p>
+        </div>
+        <div class="news-container">
+            <img class="news-container-image" src="https://image.cnbcfm.com/api/v1/image/107293316-1693325032634-aapl-event-invite.PNG?v=1693329667&w=740&h=416&ffmt=webp&vtcrop=y"></img>
+            <h2 class="news-container-text">Apple new iPhone 15 expected</h2>
+            <p class="news-container-text-paragraph">The launch event will be streamed on Apple’s website at 1 p.m. ET. Apple has used pre-recorded videos to launch its iPhones since 2020.</p>
+        </div>
+    </div>
+
+
+    <script>
+        // JavaScript code to change the navbar's background color on scroll
+        const navbar = document.querySelector(".navbar");
+        const scrollThreshold = 10; // Set the threshold value in pixels
+        // Function to handle scroll event
+        function handleScroll() {
+            if (window.scrollY > scrollThreshold) {
+                navbar.classList.add("scrolled"); 
+            } else {
+                navbar.classList.remove("scrolled"); 
+            }
+        }
+        window.addEventListener("scroll", () => {
+            handleScroll();
+        });
+
+    </script>
+    
+    
+
+    
 
 </body>
 </html>
