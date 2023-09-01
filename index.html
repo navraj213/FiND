@@ -53,23 +53,27 @@
         .search-container {
             display: flex;
             align-items: center;
-            position: relative; /* Position relative for containing the suggestions */
-            margin-right: 500px;
+            position: relative;
+            transition: margin 0.2s;
+            margin-left: 15px;
         }
 
         .search-wrapper {
             display: flex;
             align-items: center;
+            width: 300px;
+            transition: width 0.2s;
         }
         
         .search-input {
             padding: 8px 30px 8px 8px;
             font-size: 16px;
             border: 1px solid #ccc;
-            width: 300px;
+            width: 100%;
             font-family: Helvetica;
             color: black;
             outline: none;
+            transition: width 0.2s;            
         }
         
         .search-image {
@@ -112,6 +116,7 @@
             width: 100px;
             filter: grayscale(100%);
             cursor: pointer; /* Change the cursor to a pointer (clickable) */
+            margin: 0;
         }
 
         .logo:hover,
@@ -144,10 +149,13 @@
         .buttons-container { /*
             position: absolute;
             top: 32px;
-            right: 30px;
-            display: flex;*/
+            right: 30px;*/
+            margin-left: auto;
+            width: 35%;
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            transition: margin 0.2s;
         }
 
         .nav-button {
@@ -157,6 +165,7 @@
             position: relative;
             padding: 5px;
             transition: color 0.3s ease-in-out;
+            transition: font-size 0.2s;
         }
         .nav-button.scrolled {
             color: rgba(111, 111, 111, 0.941);
@@ -167,8 +176,7 @@
         }
 
         .nav-button-link {
-            margin-left: 5.5em;
-            text-decoration: none !important; 
+            text-decoration: none !important;
         }
         .nav-button-link:hover {
             text-decoration: underline !important;
@@ -178,7 +186,7 @@
             background: transparent;
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            flex: 1;
             align-items: center;
             padding: 10px;
             position: fixed;
@@ -191,6 +199,21 @@
             box-shadow: 0 0 2em rgba(0, 0, 0, 0.85);
         }
 
+        @media (max-width: 750px) {
+            .search-container {
+                margin-left: 0; 
+            }
+            .search-wrapper {
+                width: 10em;
+            }
+            .buttons-container {
+                margin-left: 0;
+            }
+            .nav-button {
+                font-size: 15px;
+            }
+
+        }
     </style>
 </head>
 
@@ -228,7 +251,7 @@
                 <div class="nav-button" id="news-btn">News</div>
             </a>
             <a draggable="false" href="Pages/dailys.html" class="nav-button-link">
-                <div class="nav-button" id="dailys-btn" style="margin-right: 3em;">Dailys</div>
+                <div class="nav-button" id="dailys-btn" style="margin-right: 2em;">Dailys</div>
             </a>
         </div>
     </div>
